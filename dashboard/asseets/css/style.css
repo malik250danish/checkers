@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #152235;
+    background-color: #152235 !important;
 }
 
 .layout-wrapper {
