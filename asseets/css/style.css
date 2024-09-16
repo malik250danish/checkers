@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bgBodyBlue {
+    background-color: #111827;
+}
+
+.authCard {
+    background-color: #1f2937 !important;
+    min-height: 300px;
+    border-radius: 50px;
+
+}
+
+.authmain {
+    border-radius: 70px;
+    padding: 0.5rem;
+    background: linear-gradient(180deg, #60a5fa 10%, rgba(33, 150, 243, 0) 30%);
+}
+
+.fs10 {
+    font-size: 10px;
+}
+
+.posText {
+    position: absolute;
+    top: 70%;
+    left: 22%;
+    width: 100%;
+    font-family: "Inter", sans-serif;
+}
+
+.fontInter {
+    font-family: "Inter", sans-serif;
+}
+
+.formInput {
+    font-family: "Inter", sans-serif;
+    ;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.87) !important;
+    background: #111827 !important;
+    padding: 0.75rem 0.75rem;
+    border: 1px solid #424b57;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s !important;
+    appearance: none;
+
+}
+
+.formInput:enabled:hover {
+    border-color: #60a5fa;
+}
+
+.formInput:focus {
+    outline: 0 none !important;
+    outline-offset: 0 !important;
+    box-shadow: 0 0 0 0.2rem rgba(96, 165, 250, 0.2) !important;
+    border-color: #60a5fa !important;
+}
+
+.formLabel {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.87) !important;
+
+
+}
+
+.strengthPassword {
+    background-color: #1f2937 !important;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.progressPass {
+    border-radius: 0 !important;
+    background: #2f3742 !important;
+}
+
+.formAuth input::placeholder {
+    color: #5f666c;
+}
+
+.btnSign {
+    border-radius: 50px;
+    height: 50px;
+}
+
+.btnFb {
+
+
+    background: rgb(255, 255, 255) url("../images/facebook.svg") no-repeat scroll 5px 0px / 30px 50px padding-box border-box;
+    border: 2px solid rgb(60, 90, 154) !important;
+    min-height: 50px;
+    color: rgb(60, 90, 154);
+    text-transform: uppercase;
+
+}
+
+.btnFb:hover {
+    border-color: #3c5a9a;
+    background: rgb(60, 90, 154) url("../images/facebook-white.svg") no-repeat scroll 5px 0px / 30px 50px padding-box border-box;
+    transition: all .3s ease-out;
+}
+
+.btnGogl {
+
+    background: rgb(255, 255, 255) url('../images/google-plus.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
+    border: 1px solid rgb(220, 74, 61);
+    min-height: 50px;
+    color: rgb(220, 74, 61);
+
+}
+
+.btnGogl:hover {
+    border-color: #dc4a3d;
+
+
+    background: rgb(220, 74, 61) url('../images/google-plus-white.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
+    transition: all .3s ease-out;
+}
+
+.forgText {
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btnSignUp {
+    background: transparent;
+    border-color: #2a7ffe !important;
+    color: #2a7ffe !important;
+    border-radius: 50px !important;
+    height: 50px !important;
+}

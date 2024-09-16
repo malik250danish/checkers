@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="154" height="154" viewBox="0 0 154 154">
+  <g id="Logo-2" transform="translate(-227 -283)">
+    <g id="Rectangle_1_copy_2" data-name="Rectangle 1 copy 2" transform="translate(227 359)" fill="#fff" stroke="#333" stroke-linejoin="round" stroke-width="1">
+      <path d="M0,0H78a0,0,0,0,1,0,0V78a0,0,0,0,1,0,0H20A20,20,0,0,1,0,58V0A0,0,0,0,1,0,0Z" stroke="none"/>
+      <path d="M.5.5h77a0,0,0,0,1,0,0v77a0,0,0,0,1,0,0H20A19.5,19.5,0,0,1,.5,58V.5A0,0,0,0,1,.5.5Z" fill="none"/>
+    </g>
+    <g id="Rectangle_1_copy_3" data-name="Rectangle 1 copy 3" transform="translate(303 283)" fill="#fff" stroke="#333" stroke-linejoin="round" stroke-width="1">
+      <path d="M0,0H58A20,20,0,0,1,78,20V78a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" stroke="none"/>
+      <path d="M.5.5H58A19.5,19.5,0,0,1,77.5,20V77.5a0,0,0,0,1,0,0H.5a0,0,0,0,1,0,0V.5A0,0,0,0,1,.5.5Z" fill="none"/>
+    </g>
+    <rect id="Rectangle_2" data-name="Rectangle 2" width="2" height="2" transform="translate(302 360)" fill="#fff"/>
+    <circle id="Ellipse_1_copy" data-name="Ellipse 1 copy" cx="23.5" cy="23.5" r="23.5" transform="translate(319 298)" fill="#333"/>
+    <circle id="Ellipse_1_copy_2" data-name="Ellipse 1 copy 2" cx="23.5" cy="23.5" r="23.5" transform="translate(242 375)" fill="#333"/>
+    <path id="Rectangle_1" data-name="Rectangle 1" d="M20,0H77a0,0,0,0,1,0,0V77a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V20A20,20,0,0,1,20,0Z" transform="translate(227 283)" fill="#2b7efe"/>
+    <path id="Rectangle_1_copy" data-name="Rectangle 1 copy" d="M0,0H77a0,0,0,0,1,0,0V57A20,20,0,0,1,57,77H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(304 360)" fill="#2b7efe"/>
+    <circle id="Ellipse_1" data-name="Ellipse 1" cx="23.5" cy="23.5" r="23.5" transform="translate(242 298)" fill="#fff"/>
+    <circle id="Ellipse_1_copy_2-2" data-name="Ellipse 1 copy 2" cx="23.5" cy="23.5" r="23.5" transform="translate(319 375)" fill="#fff"/>
+  </g>
+</svg>
