@@ -571,3 +571,44 @@ body {
     background: #414042 !important;
     color: #fff;
 }
+
+.page-link {
+    background-color: transparent !important;
+    border: none !important;
+    color: #000 !important;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.dt-paging-button .page-item .active .page-link {
+    background: #2a7ffe !important;
+    color: #fff !important;
+}
+
+.active>.page-link,
+.page-link.active {
+    background: #2a7ffe !important;
+    color: #fff !important;
+
+}
+
+.formSelect {
+    border: 1px solid #B0B8C4 !important;
+    box-shadow: none !important;
+    width: 120px;
+    height: 50px;
+    margin-bottom: 0.5rem;
+}
+
+.parentELe {
+    justify-content: end !important;
+    flex-direction: row-reverse !important;
+}
+
+.dt-layout-start {
+    margin: none !important;
+}
+
+.dt-layout-end {
+    margin: none !important;
+}
