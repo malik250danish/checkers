@@ -1,0 +1,19 @@
+
+.boxhw{
+    height: 50px;
+    width: 50px;
+}
+
+.fs112{
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+}
+.bborder{
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
