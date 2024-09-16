@@ -20,21 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // for active and inactive side bar
 
-// const sidebar = document.getElementById("sidebar");
-// const btnSideBar = document.getElementById("btnSideBar");
-// const mainContainer = document.getElementById("mainContainer");
-// const btnSideMobile = document.getElementById("btnSideMobile");
-// btnSideBar.onclick = () => {
-//   sidebar.classList.toggle("inactive");
-//   sidebar.classList.toggle("layout-mobile-active");
-//   mainContainer.classList.toggle("m-0");
-// };
-// btnSideMobile.onclick = () => {
-//   sidebar.classList.toggle("inactive");
-//   sidebar.classList.toggle("layout-mobile-active");
-//   mainContainer.classList.toggle("m-0");
-// };
-
 const sidebar = document.getElementById("sidebar");
 const btnSideBar = document.getElementById("btnSideBar");
 const mainContainer = document.getElementById("mainContainer");
@@ -70,4 +55,12 @@ document.addEventListener("click", function (event) {
   ) {
     closeSidebar();
   }
+});
+
+// for selecting board
+
+document.querySelectorAll('input[name="board"]').forEach((radio) => {
+  radio.addEventListener("change", function () {
+    console.log(`Selected board: ${this.value}`);
+  });
 });
