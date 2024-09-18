@@ -17,6 +17,179 @@
     />
     <!-- custom css -->
     <link rel="stylesheet" href="./asseets/css/style.css" />
+    <style>
+      .counter {
+        display: flex;
+        gap: 20px;
+        /* background-color: #ecc59a; */
+        padding: 10px 20px;
+        border: 1px solid #ecc59a;
+        border-radius: 5px;
+      }
+      .counter div {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .next-player {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 20px;
+      }
+      .occupied {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+      .occupied.whitePiece {
+        background-color: #fff;
+      }
+
+      .occupied.blackPiece {
+        background-color: black;
+      }
+
+      .game {
+        background-color: #fff;
+        width: 500px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .game .rowg {
+        width: 100%;
+        height: 10%;
+        display: flex;
+      }
+
+      .game .rowg .columng {
+        width: 10%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .game .rowg .columng .occupied {
+        width: 80%;
+        height: 80%;
+        border-radius: 50%;
+      }
+      .columng {
+        background-color: #fff;
+      }
+      .game .rowg .columng .occupied.blackPiece {
+        background-color: black;
+      }
+
+      .game .rowg .columng .occupied.whitePiece {
+        background-color: white;
+      }
+
+      .game .rowg .columng .whiteCase {
+        background-color: #ffff !important;
+      }
+      .whiteCase {
+        background-color: #ffff !important;
+      }
+      .game .rowg .columng.blackCase {
+        /* background-color: #ecc59a; */
+        background-color: #2a7ffe;
+      }
+
+      .readyToMove {
+        background-color: green;
+      }
+      /* css for modal */
+
+      .modal {
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.15s ease-out;
+      }
+
+      .effect {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .modal-content {
+        position: fixed;
+        z-index: 2;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ecc59a;
+        border-radius: 20px;
+      }
+
+      .modal-body {
+        padding: 5em;
+        color: black;
+      }
+
+      .modal-body p {
+        text-align: center;
+        font-size: 16px;
+        letter-spacing: 0.1em;
+        color: black;
+      }
+
+      .modalClose {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: none;
+        position: fixed;
+        width: 40px;
+        height: 40px;
+      }
+      .modalClose:before,
+      .modalClose:after {
+        content: "";
+        position: absolute;
+        top: 18px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: #ecc59a;
+        border-radius: 4px;
+      }
+      .modalClose:before {
+        transform: rotate(45deg);
+      }
+      .modalClose:after {
+        transform: rotate(-45deg);
+      }
+
+      .modal .btn-container {
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .modal .btn {
+        background-color: #4c382e;
+        color: white;
+        padding: 10px 40px;
+        border: 1px solid #4c382e;
+        border-radius: 5px;
+      }
+    </style>
   </head>
   <body class="">
     <!-- main layout -->
@@ -179,7 +352,12 @@
             <!-- main play -->
             <div class="d-flex flex-wrap gap-3">
               <!-- play area -->
+
               <div class="d-flex flex-column gap-3 board-container">
+                <div class="next-player counter text-white border-0">
+                  Trun
+                  <div class="occupied whitePiece" id="next-player"></div>
+                </div>
                 <!-- opponant -->
                 <div class="d-flex justify-content-between">
                   <div class="d-flex align-items-center gap-2">
@@ -192,11 +370,15 @@
                     <p class="text-white ptitle m-0 fontInter">Opponents</p>
                   </div>
                   <div class="d-flex align-items-center gap-3">
-                    <p class="text-white clr-title">10:00</p>
+                    <span
+                      class="text-white clr-title"
+                      id="black-player-count-pieces"
+                      >0</span
+                    >
                   </div>
                 </div>
                 <!-- board -->
-                <div class="board" id="board">
+                <!-- <div class="board" id="board">
                   <div class="board-cell"></div>
                   <div class="board-cell"></div>
                   <div class="board-cell"></div>
@@ -261,6 +443,40 @@
                   <div class="board-cell"></div>
                   <div class="board-cell"></div>
                   <div class="board-cell"></div>
+                </div> -->
+                <div class="">
+                  <div id="easyModal" class="modal">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <p>
+                          The <strong id="winner"></strong> player won the game
+                          !!
+                        </p>
+                        <p>
+                          <span id="loser"></span>, whould you take your revenge
+                          ???
+                        </p>
+
+                        <div class="btn-container">
+                          <button class="btn" onclick="location.reload()">
+                            Yes
+                          </button>
+                          <button class="btn" onclick="modalClose()">No</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="game" id="game"></div>
+                  <!-- <div class="counter text-white">
+                    <div>
+                      <div class="occupied whitePiece"></div>
+                      <span id="white-player-count-pieces">0</span>
+                    </div>
+                    <div>
+                      <div class="occupied blackPiece"></div>
+                      <span id="black-player-count-pieces">0</span>
+                    </div>
+                  </div> -->
                 </div>
                 <!-- user -->
                 <div class="d-flex justify-content-between">
@@ -274,7 +490,12 @@
                     <p class="text-white ptitle m-0 fontInter">user</p>
                   </div>
                   <div class="d-flex align-items-center gap-3">
-                    <p class="text-white clr-title">10</p>
+                    <!-- <p class="text-white clr-title">10</p> -->
+                    <span
+                      class="text-white clr-title"
+                      id="white-player-count-pieces"
+                      >0</span
+                    >
                   </div>
                 </div>
               </div>
@@ -302,11 +523,25 @@
                       <label for="min10">10 Min</label>
                     </div>
                   </div>
+
+                  <div class="progress-container mt-2 d-flex gap-1 flex-column">
+                    <i class="fa-solid fa-clock text-white"></i>
+                    <div id="progressBar"></div>
+                  </div>
                   <button
                     class="btn btn-primary w-100 fontInter b-rounded my-2"
+                    id="playBtn"
                   >
                     Play
                   </button>
+                  <!-- Progress Button -->
+                  <!-- <button
+                    class="btn btn-primary fontInter b-rounded my-2"
+                    id="playBtn w-100"
+                  >
+                    Play
+                  </button> -->
+
                   <div class="card flex-grow-1 my-2">
                     <div class="card-body p-3 d-flex align-items-center gap-3">
                       <img
@@ -371,5 +606,319 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- custom script -->
     <script src="../asseets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/progressbar.js@1.0.1/dist/progressbar.min.js"></script>
+
+    <script>
+      class Piece {
+        constructor(row, column) {
+          this.row = row;
+          this.columng = column;
+        }
+
+        compare(piece) {
+          return piece.row === this.row && piece.columng === this.columng;
+        }
+      }
+
+      const modal = document.getElementById("easyModal");
+      let game = document.getElementById("game");
+      let currentPlayer = 1;
+      let posNewPosition = [];
+      let capturedPosition = [];
+      let readyToMove = null;
+      let board = [
+        [0, -1, 0, -1, 0, -1, 0, -1, 0, -1],
+        [-1, 0, -1, 0, -1, 0, -1, 0, -1, 0],
+        [0, -1, 0, -1, 0, -1, 0, -1, 0, -1],
+        [-1, 0, -1, 0, -1, 0, -1, 0, -1, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+        [0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+      ];
+
+      function movePiece(e) {
+        let piece = e.target;
+        const row = parseInt(piece.getAttribute("rowg"));
+        const column = parseInt(piece.getAttribute("columng"));
+        let p = new Piece(row, column);
+
+        if (capturedPosition.length > 0) {
+          enableToCapture(p);
+        } else {
+          if (posNewPosition.length > 0) {
+            enableToMove(p);
+          }
+        }
+
+        if (currentPlayer === board[row][column]) {
+          player = reverse(currentPlayer);
+          if (!findPieceCaptured(p, player)) {
+            findPossibleNewPosition(p, player);
+          }
+        }
+      }
+
+      function enableToCapture(p) {
+        let find = false;
+        let pos = null;
+        capturedPosition.forEach((element) => {
+          if (element.newPosition.compare(p)) {
+            find = true;
+            pos = element.newPosition;
+            old = element.pieceCaptured;
+            return;
+          }
+        });
+
+        if (find) {
+          board[pos.row][pos.columng] = currentPlayer; // move the piece
+          board[readyToMove.row][readyToMove.columng] = 0; // delete the old position
+          board[old.row][old.columng] = 0; // captured piece is removed
+
+          readyToMove = null;
+          capturedPosition = [];
+          posNewPosition = [];
+          displayCurrentPlayer();
+          buildBoard();
+          currentPlayer = reverse(currentPlayer); // switch player
+        } else {
+          buildBoard();
+        }
+      }
+
+      function enableToMove(p) {
+        let find = false;
+        let newPosition = null;
+        posNewPosition.forEach((element) => {
+          if (element.compare(p)) {
+            find = true;
+            newPosition = element;
+            return;
+          }
+        });
+
+        if (find) moveThePiece(newPosition);
+        else buildBoard();
+      }
+
+      function moveThePiece(newPosition) {
+        board[newPosition.row][newPosition.columng] = currentPlayer;
+        board[readyToMove.row][readyToMove.columng] = 0;
+
+        readyToMove = null;
+        posNewPosition = [];
+        capturedPosition = [];
+
+        currentPlayer = reverse(currentPlayer);
+
+        displayCurrentPlayer();
+        buildBoard();
+      }
+
+      function findPossibleNewPosition(piece, player) {
+        if (
+          board[piece.row + player] &&
+          board[piece.row + player][piece.columng + 1] === 0
+        ) {
+          readyToMove = piece;
+          markPossiblePosition(piece, player, 1);
+        }
+
+        if (
+          board[piece.row + player] &&
+          board[piece.row + player][piece.columng - 1] === 0
+        ) {
+          readyToMove = piece;
+          markPossiblePosition(piece, player, -1);
+        }
+      }
+
+      function markPossiblePosition(p, player = 0, direction = 0) {
+        attribute =
+          parseInt(p.row + player) + "-" + parseInt(p.columng + direction);
+
+        position = document.querySelector(
+          "[data-position='" + attribute + "']"
+        );
+        if (position) {
+          position.style.background = "green";
+          posNewPosition.push(new Piece(p.row + player, p.columng + direction));
+        }
+      }
+      function gameOver() {
+        game.innerHTML = "<h1 class='m-2'>Times Up! Game Over</h1>";
+      }
+      function buildBoard() {
+        game.innerHTML = "";
+        let black = 0;
+        let white = 0;
+        for (let i = 0; i < board.length; i++) {
+          const element = board[i];
+          let row = document.createElement("div");
+          row.setAttribute("class", "rowg");
+
+          for (let j = 0; j < element.length; j++) {
+            const elmt = element[j];
+            let col = document.createElement("div");
+            let piece = document.createElement("div");
+            let caseType = "";
+            let occupied = "";
+
+            if (i % 2 === 0) {
+              caseType = j % 2 === 0 ? "Whitecase" : "blackCase";
+            } else {
+              caseType = j % 2 !== 0 ? "Whitecase" : "blackCase";
+            }
+
+            if (board[i][j] === 1) {
+              occupied = "whitePiece";
+            } else if (board[i][j] === -1) {
+              occupied = "blackPiece";
+            } else {
+              occupied = "empty";
+            }
+
+            piece.setAttribute("class", "occupied " + occupied);
+            piece.setAttribute("rowg", i);
+            piece.setAttribute("columng", j);
+            piece.setAttribute("data-position", i + "-" + j);
+            piece.addEventListener("click", movePiece);
+
+            col.appendChild(piece);
+            col.setAttribute("class", "columng " + caseType);
+            row.appendChild(col);
+
+            if (board[i][j] === -1) {
+              black++;
+            } else if (board[i][j] === 1) {
+              white++;
+            }
+
+            displayCounter(black, white);
+          }
+
+          game.appendChild(row);
+        }
+
+        if (black === 0 || white === 0) {
+          modalOpen(black);
+        }
+        if (black == 0) {
+          game.innerHTML =
+            "<h3 class='clr-title text-black fontInter m-2'>White wins the game</h3>";
+        }
+        if (white == 0) {
+          game.innerHTML =
+            "<h3 class='clr-title text-black fontInter m-2'>Black wins the game</h3>";
+        }
+      }
+
+      function displayCurrentPlayer() {
+        let container = document.getElementById("next-player");
+        container.classList.toggle("whitePiece", currentPlayer === 1);
+        container.classList.toggle("blackPiece", currentPlayer === -1);
+      }
+
+      function findPieceCaptured(p, player) {
+        let found = false;
+
+        const checkCapture = (rowShift, colShift) => {
+          if (
+            board[p.row + rowShift] &&
+            board[p.row + rowShift][p.columng + colShift] === player &&
+            board[p.row + 2 * rowShift] &&
+            board[p.row + 2 * rowShift][p.columng + 2 * colShift] === 0
+          ) {
+            found = true;
+            let newPosition = new Piece(
+              p.row + 2 * rowShift,
+              p.columng + 2 * colShift
+            );
+            readyToMove = p;
+            markPossiblePosition(newPosition);
+            capturedPosition.push({
+              newPosition: newPosition,
+              pieceCaptured: new Piece(p.row + rowShift, p.columng + colShift),
+            });
+          }
+        };
+
+        checkCapture(-1, -1);
+        checkCapture(-1, 1);
+        checkCapture(1, -1);
+        checkCapture(1, 1);
+
+        return found;
+      }
+
+      function displayCounter(black, white) {
+        document.getElementById("black-player-count-pieces").innerHTML = black;
+        document.getElementById("white-player-count-pieces").innerHTML = white;
+      }
+
+      function modalOpen(black) {
+        document.getElementById("winner").innerHTML =
+          black === 0 ? "White" : "Black";
+        document.getElementById("loser").innerHTML =
+          black !== 0 ? "White" : "Black";
+        modal.classList.add("effect");
+      }
+
+      function modalClose() {
+        modal.classList.remove("effect");
+      }
+
+      function reverse(player) {
+        return player === 1 ? -1 : 1;
+      }
+      // let playBtn = document.getElementById("playBtn");
+      // playBtn.onclick = () => {
+      //   buildBoard();
+      //   modalOpen(black);
+      // };
+
+      const playBtn = document.getElementById("playBtn");
+      const progressBarContainer = document.getElementById("progressBar");
+
+      // Create a progress bar using ProgressBar.js
+      const bar = new ProgressBar.Line(progressBarContainer, {
+        strokeWidth: 2,
+        color: "#2a7ffe",
+        duration: 1000,
+        easing: "linear",
+      });
+
+      playBtn.addEventListener("click", () => {
+        console.log("cick");
+        // Get the selected time value
+        const selectedTime = document.querySelector(
+          'input[name="time"]:checked'
+        );
+        if (!selectedTime) {
+          alert("Please select a time option!");
+          return;
+        }
+        buildBoard();
+        const timeInMinutes = selectedTime.value;
+        const timeInMilliseconds = timeInMinutes * 60 * 1000;
+
+        // Reset progress bar and start a new animation
+        bar.set(0);
+        bar.animate(
+          1,
+          {
+            duration: timeInMilliseconds,
+          },
+          () => {
+            // When progress is complete, show the Game Over alert
+            // alert("Game Over");
+            gameOver();
+          }
+        );
+      });
+    </script>
   </body>
 </html>
