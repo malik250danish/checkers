@@ -397,7 +397,9 @@ body {
     background-color: #2a7ffe;
 }
 
-
+.whiteCase {
+    background-color: #ffff !important;
+}
 
 @media (min-width: 992px) {
     .layout-main-container {
