@@ -394,19 +394,10 @@
                       <option value="hard">Hard</option>
                     </select>
                   </div>
-                  <div class="progress-container mt-2 d-flex gap-1 flex-column">
+                  <!-- <div class="progress-container mt-2 d-flex gap-1 flex-column">
                     <i class="fa-solid fa-clock text-white"></i>
-                    <div class="progress">
-                      <div
-                        class="progress-bar"
-                        role="progressbar"
-                        id="progress-bar"
-                        aria-valuenow="0"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                  </div>
+                    <div id="progressBar"></div>
+                  </div> -->
 
                   <button
                     class="btn btn-primary w-100 fontInter b-rounded my-2"
@@ -503,42 +494,6 @@
       let isAIThinking = false; // To prevent multiple AI moves
       let mustContinueCapture = false; // Flag for multiple captures
 
-      const progressBar = document.getElementById("progress-bar");
-      let timer;
-      const playButton = document.getElementById("restart-button");
-      function startProgress(duration) {
-        let progress = 0;
-        const interval = 100; // Update progress every 100ms
-        const totalIntervals = (duration * 60 * 1000) / interval; // Calculate total intervals
-
-        clearInterval(timer); // Clear any previous interval
-        progressBar.style.width = "0%"; // Reset progress bar
-        progressBar.setAttribute("aria-valuenow", 0);
-
-        timer = setInterval(() => {
-          progress++;
-          const percentage = (progress / totalIntervals) * 100;
-          progressBar.style.width = `${percentage}%`;
-          progressBar.setAttribute("aria-valuenow", percentage);
-
-          if (percentage >= 100) {
-            clearInterval(timer);
-            restartGame();
-          }
-        }, interval);
-      }
-
-      playButton.addEventListener("click", () => {
-        const selectedTime = document.querySelector(
-          'input[name="time"]:checked'
-        );
-        if (selectedTime) {
-          const duration = parseInt(selectedTime.value);
-          startProgress(duration);
-        } else {
-          alert("Please select a time duration!");
-        }
-      });
       // Initialize Board
       function initBoard() {
         board = [];

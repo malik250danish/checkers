@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkers Game</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+      .game {
+        position: relative;
+        width: 400px; /* Adjust based on your grid size */
+        height: 400px; /* Adjust based on your grid size */
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+      }
+      .tile {
+        border: 1px solid #333;
+        width: 50px; /* Adjust to fit your board size */
+        height: 50px; /* Adjust to fit your board size */
+        box-sizing: border-box;
+      }
+      .tile:nth-child(odd) {
+        background-color: #ddd;
+      }
+      .piece {
+        width: 50px; /* Match tile size */
+        height: 50px; /* Match tile size */
+        position: absolute; /* Allows for free positioning */
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .pred {
+        background-color: red;
+      }
+      .pblue {
+        background-color: blue;
+      }
+      .inRange {
+        background-color: rgba(0, 255, 0, 0.5); /* Highlight moves */
+      }
+      .selected {
+        border: 2px solid red; /* Highlight selected piece */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game"></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        const Board = {
+          board: [
+            [0, 1, 0, 1, 0, 1, 0, 1],
+            [1, 0, 1, 0, 1, 0, 1, 0],
+            [0, 1, 0, 1, 0, 1, 0, 1],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [2, 0, 2, 0, 2, 0, 2, 0],
+            [0, 2, 0, 2, 0, 2, 0, 2],
+            [2, 0, 2, 0, 2, 0, 2, 0],
+          ],
+          pieces: [],
+          tiles: [],
+          playerTurn: 1,
+          initialize: function () {
+            this.createTiles();
+            this.createPieces();
+          },
+          createTiles: function () {
+            for (let row = 0; row < 8; row++) {
+              for (let col = 0; col < 8; col++) {
+                const tile = $('<div class="tile"></div>');
+                tile.css({
+                  top: row * 50 + "px", // Adjust for tile height
+                  left: col * 50 + "px", // Adjust for tile width
+                });
+                $(".game").append(tile);
+                this.tiles.push({ row, col, element: tile });
+              }
+            }
+          },
+          createPieces: function () {
+            for (let row = 0; row < 8; row++) {
+              for (let col = 0; col < 8; col++) {
+                if (this.board[row][col] === 1) {
+                  const piece = $('<div class="piece pred" ></div>');
+                  piece.attr("data-player", 1);
+                  this.pieces.push({
+                    player: 1,
+                    element: piece,
+                    position: [row, col],
+                  });
+                  $(".game").append(piece);
+                  piece.css({ top: row * 50 + "px", left: col * 50 + "px" });
+                } else if (this.board[row][col] === 2) {
+                  const piece = $('<div class="piece pblue" ></div>');
+                  piece.attr("data-player", 2);
+                  this.pieces.push({
+                    player: 2,
+                    element: piece,
+                    position: [row, col],
+                  });
+                  $(".game").append(piece);
+                  piece.css({ top: row * 50 + "px", left: col * 50 + "px" });
+                }
+              }
+            }
+          },
+          selectPiece: function (piece) {
+            if (this.playerTurn === 1 && piece.attr("data-player") == 1) {
+              $(".piece").removeClass("selected");
+              piece.addClass("selected");
+              this.showValidMoves(piece);
+            }
+          },
+          showValidMoves: function (piece) {
+            const [row, col] = this.getPiecePosition(piece);
+            const validMoves = this.getValidMoves(row, col);
+            validMoves.forEach((move) => {
+              const tile = this.tiles.find(
+                (t) => t.row === move.row && t.col === move.col
+              );
+              tile.element.addClass("inRange");
+            });
+          },
+          getValidMoves: function (row, col) {
+            const moves = [];
+            const direction = this.playerTurn === 1 ? 1 : -1; // Direction based on player
+
+            // Simple diagonal moves
+            const possibleMoves = [
+              { row: row + direction, col: col - 1 },
+              { row: row + direction, col: col + 1 },
+            ];
+
+            possibleMoves.forEach((move) => {
+              if (this.isValidMove(move.row, move.col)) {
+                moves.push(move);
+              }
+            });
+
+            // Check for captures
+            const possibleCaptures = [
+              { row: row + direction * 2, col: col - 2 },
+              { row: row + direction * 2, col: col + 2 },
+            ];
+
+            possibleCaptures.forEach((capture) => {
+              const midRow = (row + capture.row) / 2;
+              const midCol = (col + capture.col) / 2;
+              if (this.isValidCapture(midRow, midCol, this.playerTurn)) {
+                moves.push(capture);
+              }
+            });
+
+            return moves;
+          },
+          isValidMove: function (row, col) {
+            return (
+              row >= 0 &&
+              row < 8 &&
+              col >= 0 &&
+              col < 8 &&
+              this.board[row][col] === 0
+            );
+          },
+          isValidCapture: function (row, col, player) {
+            return (
+              row >= 0 &&
+              row < 8 &&
+              col >= 0 &&
+              col < 8 &&
+              this.board[row][col] !== player &&
+              this.board[row][col] !== 0
+            );
+          },
+          getPiecePosition: function (piece) {
+            return this.pieces.find((p) => p.element.is(piece)).position;
+          },
+          movePiece: function (piece, toRow, toCol) {
+            const [fromRow, fromCol] = this.getPiecePosition(piece);
+            this.board[fromRow][fromCol] = 0; // Remove from original position
+            this.board[toRow][toCol] = piece.attr("data-player"); // Place on new position
+            piece.css({ top: toRow * 50 + "px", left: toCol * 50 + "px" }); // Move the piece
+            piece.attr("data-player", this.playerTurn); // Update the data attribute
+            this.playerTurn = this.playerTurn === 1 ? 2 : 1; // Switch turns
+            this.checkForAI();
+          },
+          checkForAI: function () {
+            if (this.playerTurn === 2) {
+              setTimeout(() => {
+                this.aiMove();
+              }, 1000); // Delay for AI
+            }
+          },
+          aiMove: function () {
+            const aiPieces = this.pieces.filter((p) => p.player === 2);
+            const selectedPiece =
+              aiPieces[Math.floor(Math.random() * aiPieces.length)];
+            const [row, col] = this.getPiecePosition(selectedPiece.element);
+            const validMoves = this.getValidMoves(row, col);
+            if (validMoves.length > 0) {
+              const move =
+                validMoves[Math.floor(Math.random() * validMoves.length)];
+              this.movePiece(selectedPiece.element, move.row, move.col);
+            }
+          },
+        };
+
+        // Initialize the game
+        Board.initialize();
+
+        // Piece selection and movement
+        $(".piece").on("click", function () {
+          const piece = $(this);
+          Board.selectPiece(piece);
+          if ($(".selected").length > 0) {
+            $(".tile.inRange").on("click", function () {
+              const tileRow = $(this).index() % 8;
+              const tileCol = Math.floor($(this).index() / 8);
+              const selectedPiece = $(".selected");
+              Board.movePiece(selectedPiece, tileRow, tileCol);
+              $(".tile.inRange").removeClass("inRange");
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
