@@ -102,6 +102,40 @@
         font-size: 1em;
         cursor: pointer;
       }
+      @media (max-width: 768px) {
+        #board {
+          display: grid;
+          grid-template-columns: repeat(8, 22px);
+          grid-template-rows: repeat(8, 22px);
+          margin: 0 auto;
+          border: 2px solid #333;
+          width: 193px;
+          height: 260px;
+          position: relative;
+        }
+        .cell {
+          width: 26px;
+          height: 34px;
+          box-sizing: border-box;
+          position: relative;
+        }
+        .piece {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          margin: 5px auto;
+          position: absolute;
+          top: 0;
+          left: 5px;
+          cursor: pointer;
+          transition: transform 0.2s;
+        }
+      }
+      @media (max-width: 576px) {
+        .layout-main {
+          padding: 0;
+        }
+      }
     </style>
   </head>
   <body class="">
