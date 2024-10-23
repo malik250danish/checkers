@@ -65,7 +65,7 @@
         margin: 5px auto;
         position: absolute;
         top: 0;
-        left: 0;
+        left: 4px;
         cursor: pointer;
         transition: transform 0.2s;
       }
@@ -816,6 +816,14 @@
       function checkGameOver() {
         const playerRedPieces = countPieces(PLAYER_RED);
         const playerBlackPieces = countPieces(PLAYER_BLACK);
+        let blackplayercount = document.getElementById(
+          "black-player-count-pieces"
+        );
+        let whiteplayercount = document.getElementById(
+          "white-player-count-pieces"
+        );
+        blackplayercount.innerText = playerBlackPieces;
+        whiteplayercount.innerText = playerRedPieces;
         if (playerRedPieces === 0) {
           alert("Black wins!");
           restartGame();
@@ -836,6 +844,7 @@
             }
           }
         }
+        console.log("count ", count);
         return count;
       }
 
@@ -976,6 +985,7 @@
         // Switch turn back to the player
         currentPlayer = PLAYER_RED;
         updateStatus(); // Update the game status to reflect the current player's turn
+        checkGameOver();
       }
 
       function chooseBestMove(moves) {
@@ -1314,10 +1324,12 @@
       function restartGame() {
         initBoard();
         renderBoard();
+
         selectedPiece = null;
         currentPlayer = PLAYER_RED;
         mustContinueCapture = false;
         updateStatus();
+        checkGameOver();
         if (gameMode === "single" && currentPlayer === PLAYER_BLACK) {
           setTimeout(() => {
             aiMove();
