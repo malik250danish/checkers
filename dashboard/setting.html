@@ -1,327 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Chekkers</title>
-    <link rel="icon" href="./asseets/images/boardfav.png" type="image/png" />
-    <!-- bootstrap link -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <!-- font awsome-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-    <!-- custom css -->
-    <link rel="stylesheet" href="./asseets/css/style.css" />
-  </head>
-  <body class="">
-    <!-- main layout -->
-    <div class="layout-wrapper">
-      <!-- sidebar -->
-      <div class="layout-sidebar" id="sidebar">
-        <button
-          class="btn btn-round btn-primary d-block ms-auto"
-          id="btnSideMobile"
-        >
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="layout-sidebar-header">
-          <a href="./dashboard.html" class="text-decoration-none">
-            <img
-              class="img-fluid"
-              src="./asseets/images/checkersx-logo-white.png"
-              alt=""
-            />
-            <p class="fs-10 text-logo fontInter">
-              Play Checkers Online on the #1 Site!
-            </p>
-          </a>
-        </div>
-        <div class="menu">
-          <ul class="p-0">
-            <li>
-              <a href="./dashboard.html" class="px-3 py-2">
-                <img src="./asseets/images/home.png" alt="" class="me-2" />
-                Dasboard
-              </a>
-            </li>
-            <li>
-              <a href="./play.html" class="px-3 py-2">
-                <img src="./asseets/images/board.svg" alt="" class="me-2" />
-                Play
-              </a>
-            </li>
-            <li>
-              <a href="./tournament.html" class="px-3 py-2">
-                <img src="./asseets/images/trophy.png" alt="" class="me-2" />
-                Tournaments
-              </a>
-            </li>
-            <li>
-              <a href="./puzzle.html" class="px-3 py-2">
-                <img src="./asseets/images/puzzle.png" alt="" class="me-2" />
-                Puzzles
-              </a>
-            </li>
-            <li>
-              <a href="./learn.html" class="px-3 py-2">
-                <img src="./asseets/images/learn.png" alt="" class="me-2" />
-                Learn
-              </a>
-            </li>
-            <li>
-              <a href="./social.html" class="px-3 py-2">
-                <img src="./asseets/images/social.png" alt="" class="me-2" />
-                Social
-              </a>
-            </li>
-            <li>
-              <a href="./leatherboard.html" class="px-3 py-2">
-                <img
-                  src="./asseets/images/leaderboard.png"
-                  alt=""
-                  class="me-2"
-                />
-                Leatherboard
-              </a>
-            </li>
-            <li>
-              <a href="./profile.html" class="px-3 py-2">
-                <img src="./asseets/images/profile.png" alt="" class="me-2" />
-                Profile
-              </a>
-            </li>
-            <li>
-              <a href="./support.html" class="px-3 py-2">
-                <img src="./asseets/images/support.png" alt="" class="me-2" />
-                Support
-              </a>
-            </li>
-            <li>
-              <a href="./setting.html" class="px-3 py-2">
-                <img src="./asseets/images/setting.png" alt="" class="me-2" />
-                Setting
-              </a>
-            </li>
-            <li>
-              <a href="../login.html" class="px-3 py-2">
-                <img src="./asseets/images/logout.png" alt="" class="me-2" />
-                Logout
-              </a>
-            </li>
-            <li>
-              <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      <img src="./asseets/images/admin-profile.png" alt="" />
-                      Admin
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseOne"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div class="accordion-body menu">
-                      <ul class="p-0">
-                        <li>
-                          <a href="./updatelearn.html" class="px-3 py-2">
-                            Update Learn
-                          </a>
-                        </li>
-                        <li>
-                          <a href="./updatenews.html" class="px-3 py-2">
-                            Update News
-                          </a>
-                        </li>
-                        <li>
-                          <a href="./users.html" class="px-3 py-2"> Users </a>
-                        </li>
-                        <li>
-                          <a href="./createtournamnet.html" class="px-3 py-2">
-                            Create Tournamnet
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chekkers</title>
+  <link rel="icon" href="./asseets/images/boardfav.png" type="image/png" />
+  <!-- bootstrap link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- font awsome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <!-- custom css -->
+  <link rel="stylesheet" href="./asseets/css/style.css" />
+</head>
+
+<body class="">
+  <!-- main layout -->
+  <div class="layout-wrapper">
+    <!-- sidebar -->
+    <div class="layout-sidebar" id="sidebar">
+      <button class="btn btn-round btn-primary d-block ms-auto" id="btnSideMobile">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="layout-sidebar-header">
+        <a href="./dashboard.html" class="text-decoration-none">
+          <img class="img-fluid" src="./asseets/images/checkersx-logo-white.png" alt="" />
+          <p class="fs-10 text-logo fontInter">
+            Play Checkers Online on the #1 Site!
+          </p>
+        </a>
+      </div>
+      <div class="menu">
+        <ul class="p-0">
+          <li>
+            <a href="./dashboard.html" class="px-3 py-2">
+              <img src="./asseets/images/home.png" alt="" class="me-2" />
+              Dasboard
+            </a>
+          </li>
+          <li>
+            <a href="./play.html" class="px-3 py-2">
+              <img src="./asseets/images/board.svg" alt="" class="me-2" />
+              Play
+            </a>
+          </li>
+          <li>
+            <a href="./tournament.html" class="px-3 py-2">
+              <img src="./asseets/images/trophy.png" alt="" class="me-2" />
+              Tournaments
+            </a>
+          </li>
+          <li>
+            <a href="./puzzle.html" class="px-3 py-2">
+              <img src="./asseets/images/puzzle.png" alt="" class="me-2" />
+              Puzzles
+            </a>
+          </li>
+          <li>
+            <a href="./learn.html" class="px-3 py-2">
+              <img src="./asseets/images/learn.png" alt="" class="me-2" />
+              Learn
+            </a>
+          </li>
+          <li>
+            <a href="./social.html" class="px-3 py-2">
+              <img src="./asseets/images/social.png" alt="" class="me-2" />
+              Social
+            </a>
+          </li>
+          <li>
+            <a href="./leatherboard.html" class="px-3 py-2">
+              <img src="./asseets/images/leaderboard.png" alt="" class="me-2" />
+              Leatherboard
+            </a>
+          </li>
+          <li>
+            <a href="./profile.html" class="px-3 py-2">
+              <img src="./asseets/images/profile.png" alt="" class="me-2" />
+              Profile
+            </a>
+          </li>
+          <li>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeqPz62bjSipBR5zwJfNCRswsfZUiR4o0EOWD5KiLgmCgQNlw/viewform?embedded=true"
+              class="px-3 py-2">
+              <img src="./asseets/images/support.png" alt="" class="me-2" />
+              Support
+            </a>
+          </li>
+          <li>
+            <a href="./setting.html" class="px-3 py-2">
+              <img src="./asseets/images/setting.png" alt="" class="me-2" />
+              Setting
+            </a>
+          </li>
+          <li>
+            <a href="../login.html" class="px-3 py-2">
+              <img src="./asseets/images/logout.png" alt="" class="me-2" />
+              Logout
+            </a>
+          </li>
+          <li>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    <img src="./asseets/images/admin-profile.png" alt="" />
+                    Admin
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body menu">
+                    <ul class="p-0">
+                      <li>
+                        <a href="./updatelearn.html" class="px-3 py-2">
+                          Update Learn
+                        </a>
+                      </li>
+                      <li>
+                        <a href="./updatenews.html" class="px-3 py-2">
+                          Update News
+                        </a>
+                      </li>
+                      <li>
+                        <a href="./users.html" class="px-3 py-2"> Users </a>
+                      </li>
+                      <li>
+                        <a href="./createtournamnet.html" class="px-3 py-2">
+                          Create Tournamnet
+                        </a>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
-            </li>
-          </ul>
-        </div>
+            </div>
+          </li>
+        </ul>
       </div>
-      <!-- mian container -->
-      <div class="layout-main-container" id="mainContainer">
-        <!-- top header -->
-        <div class="layout-topbar">
-          <!-- button for toggle side bar -->
-          <button class="btn btn-round btn-primary" id="btnSideBar">
-            <i class="fa-solid fa-bars"></i>
-          </button>
-        </div>
-        <!-- main layout -->
-        <div class="layout-main">
-          <div class="container">
-            <p class="clr-title fontInter">Settings</p>
+    </div>
+    <!-- mian container -->
+    <div class="layout-main-container" id="mainContainer">
+      <!-- top header -->
+      <div class="layout-topbar">
+        <!-- button for toggle side bar -->
+        <button class="btn btn-round btn-primary" id="btnSideBar">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+      <!-- main layout -->
+      <div class="layout-main">
+        <div class="container">
+          <p class="clr-title fontInter">Settings</p>
 
-            <div class="mt-3">
-              <label for="" class="text-white fontInter mb-2">
-                Select Board</label
-              >
-              <div class="row g-3 select-board">
-                <div class="col-md-3">
-                  <input
-                    type="radio"
-                    id="one"
-                    name="board"
-                    value="one"
-                    class="d-none"
-                  />
-                  <label for="one" class="card">
-                    <div class="card-body">
-                      <div
-                        class="img-container img-contain h-auto w-100 m-auto"
-                      >
-                        <img
-                          class="imgBoardCheck"
-                          src="./asseets/images/board-01.jpg"
-                          alt="Board 1"
-                        />
-                      </div>
+          <div class="mt-3">
+            <label for="" class="text-white fontInter mb-2">
+              Select Board</label>
+            <div class="row g-3 select-board">
+              <div class="col-md-3">
+                <input type="radio" id="one" name="board" value="one" class="d-none" />
+                <label for="one" class="card">
+                  <div class="card-body">
+                    <div class="img-container img-contain h-auto w-100 m-auto">
+                      <img class="imgBoardCheck" src="./asseets/images/board-01.jpg" alt="Board 1" />
                     </div>
-                  </label>
-                </div>
-                <div class="col-md-3">
-                  <input
-                    type="radio"
-                    id="two"
-                    name="board"
-                    value="two"
-                    class="d-none"
-                  />
-                  <label for="two" class="card">
-                    <div class="card-body">
-                      <div
-                        class="img-container img-contain h-auto w-100 m-auto"
-                      >
-                        <img
-                          class="imgBoardCheck"
-                          src="./asseets/images/board-02.jpg"
-                          alt="Board 2"
-                        />
-                      </div>
+                  </div>
+                </label>
+              </div>
+              <div class="col-md-3">
+                <input type="radio" id="two" name="board" value="two" class="d-none" />
+                <label for="two" class="card">
+                  <div class="card-body">
+                    <div class="img-container img-contain h-auto w-100 m-auto">
+                      <img class="imgBoardCheck" src="./asseets/images/board-02.jpg" alt="Board 2" />
                     </div>
-                  </label>
-                </div>
-                <div class="col-md-3">
-                  <input
-                    type="radio"
-                    id="three"
-                    name="board"
-                    value="three"
-                    class="d-none"
-                  />
-                  <label for="three" class="card">
-                    <div class="card-body">
-                      <div
-                        class="img-container img-contain h-auto w-100 m-auto"
-                      >
-                        <img
-                          class="imgBoardCheck"
-                          src="./asseets/images/board-03.jpg"
-                          alt="Board 3"
-                        />
-                      </div>
+                  </div>
+                </label>
+              </div>
+              <div class="col-md-3">
+                <input type="radio" id="three" name="board" value="three" class="d-none" />
+                <label for="three" class="card">
+                  <div class="card-body">
+                    <div class="img-container img-contain h-auto w-100 m-auto">
+                      <img class="imgBoardCheck" src="./asseets/images/board-03.jpg" alt="Board 3" />
                     </div>
-                  </label>
-                </div>
-                <div class="col-md-3">
-                  <input
-                    type="radio"
-                    id="four"
-                    name="board"
-                    value="four"
-                    class="d-none"
-                  />
-                  <label for="four" class="card">
-                    <div class="card-body">
-                      <div
-                        class="img-container img-contain h-auto w-100 m-auto"
-                      >
-                        <img
-                          class="imgBoardCheck"
-                          src="./asseets/images/board-04.jpg"
-                        />
-                      </div>
+                  </div>
+                </label>
+              </div>
+              <div class="col-md-3">
+                <input type="radio" id="four" name="board" value="four" class="d-none" />
+                <label for="four" class="card">
+                  <div class="card-body">
+                    <div class="img-container img-contain h-auto w-100 m-auto">
+                      <img class="imgBoardCheck" src="./asseets/images/board-04.jpg" />
                     </div>
-                  </label>
-                </div>
-                <div class="col-md-3">
-                  <input
-                    type="radio"
-                    id="five"
-                    name="board"
-                    value="five"
-                    class="d-none"
-                    checked
-                  />
-                  <label for="five" class="card">
-                    <div class="card-body">
-                      <div
-                        class="img-container img-contain h-auto w-100 m-auto"
-                      >
-                        <img
-                          class="imgBoardCheck"
-                          src="./asseets/images/board-05.jpg"
-                        />
-                      </div>
+                  </div>
+                </label>
+              </div>
+              <div class="col-md-3">
+                <input type="radio" id="five" name="board" value="five" class="d-none" checked />
+                <label for="five" class="card">
+                  <div class="card-body">
+                    <div class="img-container img-contain h-auto w-100 m-auto">
+                      <img class="imgBoardCheck" src="./asseets/images/board-05.jpg" />
                     </div>
-                  </label>
-                </div>
+                  </div>
+                </label>
               </div>
             </div>
-            <!-- sound switch -->
-            <div class="mt-2">
-              <label
-                class="form-check-label text-white fontInter"
-                for="flexSwitchCheckDefault"
-                >Sound</label
-              >
-              <div class="form-check form-switch">
-                <input
-                  class="form-check-input soundToggle"
-                  type="checkbox"
-                  id="flexSwitchCheckDefault"
-                />
-              </div>
+          </div>
+          <!-- sound switch -->
+          <div class="mt-2">
+            <label class="form-check-label text-white fontInter" for="flexSwitchCheckDefault">Sound</label>
+            <div class="form-check form-switch">
+              <input class="form-check-input soundToggle" type="checkbox" id="flexSwitchCheckDefault" />
             </div>
-            <div>
-              <button class="btn btn-primary b-rounded px-5 py-3">
-                Update
-              </button>
-            </div>
+          </div>
+          <div>
+            <button class="btn btn-primary b-rounded px-5 py-3">
+              Update
+            </button>
           </div>
         </div>
       </div>
     </div>
-    <!-- bootstrap script -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- custom script -->
-    <script src="../asseets/js/script.js"></script>
-  </body>
+  </div>
+  <!-- bootstrap script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- custom script -->
+  <script src="../asseets/js/script.js"></script>
+</body>
+
 </html>
