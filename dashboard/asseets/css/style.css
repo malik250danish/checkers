@@ -619,4 +619,8 @@ body {
     .layout-main {
         padding: 0;
     }
+
+    .layout-topbar {
+        padding: 0;
+    }
 }
