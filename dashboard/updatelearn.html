@@ -1,267 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Chekkers</title>
-    <link rel="icon" href="./asseets/images/boardfav.png" type="image/png" />
-    <!-- bootstrap link -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <!-- font awsome-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-    <!-- custom css -->
-    <link rel="stylesheet" href="./asseets/css/style.css" />
-    <!-- Quill editor stylesheet -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="">
-    <!-- main layout -->
-    <div class="layout-wrapper">
-      <!-- sidebar -->
-      <div class="layout-sidebar" id="sidebar">
-        <button
-          class="btn btn-round btn-primary d-block ms-auto"
-          id="btnSideMobile"
-        >
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="layout-sidebar-header">
-          <a href="./dashboard.html" class="text-decoration-none">
-            <img
-              class="img-fluid"
-              src="./asseets/images/checkersx-logo-white.png"
-              alt=""
-            />
-            <p class="fs-10 text-logo fontInter">
-              Play Checkers Online on the #1 Site!
-            </p>
-          </a>
-        </div>
-        <div class="menu">
-          <ul class="p-0">
-            <li>
-              <a href="./dashboard.html" class="px-3 py-2">
-                <img src="./asseets/images/home.png" alt="" class="me-2" />
-                Dasboard
-              </a>
-            </li>
-            <li>
-              <a href="./play.html" class="px-3 py-2">
-                <img src="./asseets/images/board.svg" alt="" class="me-2" />
-                Play
-              </a>
-            </li>
-            <li>
-              <a href="./tournament.html" class="px-3 py-2">
-                <img src="./asseets/images/trophy.png" alt="" class="me-2" />
-                Tournaments
-              </a>
-            </li>
-            <li>
-              <a href="./puzzle.html" class="px-3 py-2">
-                <img src="./asseets/images/puzzle.png" alt="" class="me-2" />
-                Puzzles
-              </a>
-            </li>
-            <li>
-              <a href="./learn.html" class="px-3 py-2">
-                <img src="./asseets/images/learn.png" alt="" class="me-2" />
-                Learn
-              </a>
-            </li>
-            <li>
-              <a href="./social.html" class="px-3 py-2">
-                <img src="./asseets/images/social.png" alt="" class="me-2" />
-                Social
-              </a>
-            </li>
-            <li>
-              <a href="./leatherboard.html" class="px-3 py-2">
-                <img
-                  src="./asseets/images/leaderboard.png"
-                  alt=""
-                  class="me-2"
-                />
-                Leatherboard
-              </a>
-            </li>
-            <li>
-              <a href="./profile.html" class="px-3 py-2">
-                <img src="./asseets/images/profile.png" alt="" class="me-2" />
-                Profile
-              </a>
-            </li>
-            <li>
-              <a href="./support.html" class="px-3 py-2">
-                <img src="./asseets/images/support.png" alt="" class="me-2" />
-                Support
-              </a>
-            </li>
-            <li>
-              <a href="./setting.html" class="px-3 py-2">
-                <img src="./asseets/images/setting.png" alt="" class="me-2" />
-                Setting
-              </a>
-            </li>
-            <li>
-              <a href="../login.html" class="px-3 py-2">
-                <img src="./asseets/images/logout.png" alt="" class="me-2" />
-                Logout
-              </a>
-            </li>
-            <li>
-              <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      <img src="./asseets/images/admin-profile.png" alt="" />
-                      Admin
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseOne"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div class="accordion-body menu">
-                      <ul class="p-0">
-                        <li>
-                          <a href="./updatelearn.html" class="px-3 py-2">
-                            Update Learn
-                          </a>
-                        </li>
-                        <li>
-                          <a href="./updatenews.html" class="px-3 py-2">
-                            Update News
-                          </a>
-                        </li>
-                        <li>
-                          <a href="./users.html" class="px-3 py-2"> Users </a>
-                        </li>
-                        <li>
-                          <a href="./createtournamnet.html" class="px-3 py-2">
-                            Create Tournamnet
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chekkers</title>
+  <link rel="icon" href="./asseets/images/boardfav.png" type="image/png" />
+  <!-- bootstrap link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- font awsome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <!-- custom css -->
+  <link rel="stylesheet" href="./asseets/css/style.css" />
+  <!-- Quill editor stylesheet -->
+  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+</head>
+
+<body class="">
+  <!-- main layout -->
+  <div class="layout-wrapper">
+    <!-- sidebar -->
+    <div class="layout-sidebar" id="sidebar">
+      <button class="btn btn-round btn-primary d-block ms-auto" id="btnSideMobile">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="layout-sidebar-header">
+        <a href="./dashboard.html" class="text-decoration-none">
+          <img class="img-fluid" src="./asseets/images/checkersx-logo-white.png" alt="" />
+          <p class="fs-10 text-logo fontInter">
+            Play Checkers Online on the #1 Site!
+          </p>
+        </a>
+      </div>
+      <div class="menu">
+        <ul class="p-0">
+          <li>
+            <a href="./dashboard.html" class="px-3 py-2">
+              <img src="./asseets/images/home.png" alt="" class="me-2" />
+              Dasboard
+            </a>
+          </li>
+          <li>
+            <a href="./play.html" class="px-3 py-2">
+              <img src="./asseets/images/board.svg" alt="" class="me-2" />
+              Play
+            </a>
+          </li>
+          <li>
+            <a href="./tournament.html" class="px-3 py-2">
+              <img src="./asseets/images/trophy.png" alt="" class="me-2" />
+              Tournaments
+            </a>
+          </li>
+          <li>
+            <a href="./puzzle.html" class="px-3 py-2">
+              <img src="./asseets/images/puzzle.png" alt="" class="me-2" />
+              Puzzles
+            </a>
+          </li>
+          <li>
+            <a href="./learn.html" class="px-3 py-2">
+              <img src="./asseets/images/learn.png" alt="" class="me-2" />
+              Learn
+            </a>
+          </li>
+          <li>
+            <a href="./social.html" class="px-3 py-2">
+              <img src="./asseets/images/social.png" alt="" class="me-2" />
+              Social
+            </a>
+          </li>
+          <li>
+            <a href="./leatherboard.html" class="px-3 py-2">
+              <img src="./asseets/images/leaderboard.png" alt="" class="me-2" />
+              Leatherboard
+            </a>
+          </li>
+          <li>
+            <a href="./profile.html" class="px-3 py-2">
+              <img src="./asseets/images/profile.png" alt="" class="me-2" />
+              Profile
+            </a>
+          </li>
+          <li>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeqPz62bjSipBR5zwJfNCRswsfZUiR4o0EOWD5KiLgmCgQNlw/viewform?embedded=true"
+              class="px-3 py-2">
+              <img src="./asseets/images/support.png" alt="" class="me-2" />
+              Support
+            </a>
+          </li>
+          <li>
+            <a href="./setting.html" class="px-3 py-2">
+              <img src="./asseets/images/setting.png" alt="" class="me-2" />
+              Setting
+            </a>
+          </li>
+          <li>
+            <a href="../login.html" class="px-3 py-2">
+              <img src="./asseets/images/logout.png" alt="" class="me-2" />
+              Logout
+            </a>
+          </li>
+          <li>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    <img src="./asseets/images/admin-profile.png" alt="" />
+                    Admin
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body menu">
+                    <ul class="p-0">
+                      <li>
+                        <a href="./updatelearn.html" class="px-3 py-2">
+                          Update Learn
+                        </a>
+                      </li>
+                      <li>
+                        <a href="./updatenews.html" class="px-3 py-2">
+                          Update News
+                        </a>
+                      </li>
+                      <li>
+                        <a href="./users.html" class="px-3 py-2"> Users </a>
+                      </li>
+                      <li>
+                        <a href="./createtournamnet.html" class="px-3 py-2">
+                          Create Tournamnet
+                        </a>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- mian container -->
-      <div class="layout-main-container" id="mainContainer">
-        <!-- top header -->
-        <div class="layout-topbar">
-          <!-- button for toggle side bar -->
-          <button class="btn btn-round btn-primary" id="btnSideBar">
-            <i class="fa-solid fa-bars"></i>
-          </button>
-        </div>
-        <!-- main layout -->
-        <div class="layout-main">
-          <div class="container">
-            <p class="clr-title fontInter">Update Learn Content</p>
-
-            <!-- Create the editor container -->
-            <div id="editor">
-              <p>
-                Checkers Rules Checkers Rules and Gameplay Checkers is a fun,
-                challenging, game!!!!! Checkers is a board game played between
-                two people on an 8x8 checked board. Each player has 12 pieces.
-                The pieces are placed on every other dark square and then
-                staggered by rows, like shown on the board. Each Checkers player
-                has different colored pieces. Sometimes the pieces are black and
-                red or red and white. Turns The darker color pieces moves first.
-                Each player takes their turn by moving a piece. Pieces are
-                always moved diagonally and can be moved in the following ways:
-                • Diagonally in the forward direction (towards the opponent) to
-                the next dark square. • If there is one of the opponent's pieces
-                next to a piece and an empty space on the other side, you jump
-                your opponent and remove their piece. You can do multiple jumps
-                if they are lined up in the forward direction and if you have a
-                jump, you have no choice but to take it. King Pieces The last
-                row is called the king row. If you get a piece across the board
-                to the opponent's king row, that piece becomes a king. Another
-                piece is placed onto that piece so it is now two pieces high.
-                King pieces can move in both directions, forward and backward.
-                Once a piece is kinged, the player must wait until the next turn
-                to jump out of the king row. Winning a game You win the game
-                when the opponent has no more pieces or can't move (even if
-                he/she still has pieces). If neither player can move then it is
-                a draw. Tips • Sacrifice 1 piece for 2: you can sometimes bait
-                or force the opponent to take one of your pieces enabling you to
-                then take 2 of their pieces. • Pieces on the sides are valuable
-                because they can't be jumped. • Don't bunch all your pieces in
-                the middle or you may not be able to move, and then you will
-                lose. • Try to keep your pieces on the back row or king row for
-                as long as possible, to keep the other player from gaining a
-                king. • Plan ahead and try to look at every possible move before
-                you take your turn. • Practice: if you play a lot against a lot
-                of different players, you will get better. Regardless of your
-                level of experience. There's no doubting that checkers is here
-                to stay, from its historical beginnings to its contemporary
-                accomplishments! So go ahead and challenge your buddies on
-                checkersx.com ; you never know what surprises they have in
-                store! Play with people from across the world at checekrsx.com
-                to indulge your competitive side. Checkers Federation The
-                checkers website gives titles to checkers players. GM Checkers
-                Grand Master get a rank of 3000 and win 5 official tournaments.
-                IM International checkers Master get a rating of 2800 and win 3
-                official tournaments. NM National Master get a rating of 2600
-                and win 1 official tournaments. CM Candidate Master get a rating
-                of 2400 and finish in the top 3 for 3 tournaments. Official
-                tournaments will be market in the tournament page. Join our
-                discord for more details.
-              </p>
-              <p><br /></p>
             </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- mian container -->
+    <div class="layout-main-container" id="mainContainer">
+      <!-- top header -->
+      <div class="layout-topbar">
+        <!-- button for toggle side bar -->
+        <button class="btn btn-round btn-primary" id="btnSideBar">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+      <!-- main layout -->
+      <div class="layout-main">
+        <div class="container">
+          <p class="clr-title fontInter">Update Learn Content</p>
+
+          <!-- Create the editor container -->
+          <div id="editor">
+            <p>
+              Checkers Rules Checkers Rules and Gameplay Checkers is a fun,
+              challenging, game!!!!! Checkers is a board game played between
+              two people on an 8x8 checked board. Each player has 12 pieces.
+              The pieces are placed on every other dark square and then
+              staggered by rows, like shown on the board. Each Checkers player
+              has different colored pieces. Sometimes the pieces are black and
+              red or red and white. Turns The darker color pieces moves first.
+              Each player takes their turn by moving a piece. Pieces are
+              always moved diagonally and can be moved in the following ways:
+              • Diagonally in the forward direction (towards the opponent) to
+              the next dark square. • If there is one of the opponent's pieces
+              next to a piece and an empty space on the other side, you jump
+              your opponent and remove their piece. You can do multiple jumps
+              if they are lined up in the forward direction and if you have a
+              jump, you have no choice but to take it. King Pieces The last
+              row is called the king row. If you get a piece across the board
+              to the opponent's king row, that piece becomes a king. Another
+              piece is placed onto that piece so it is now two pieces high.
+              King pieces can move in both directions, forward and backward.
+              Once a piece is kinged, the player must wait until the next turn
+              to jump out of the king row. Winning a game You win the game
+              when the opponent has no more pieces or can't move (even if
+              he/she still has pieces). If neither player can move then it is
+              a draw. Tips • Sacrifice 1 piece for 2: you can sometimes bait
+              or force the opponent to take one of your pieces enabling you to
+              then take 2 of their pieces. • Pieces on the sides are valuable
+              because they can't be jumped. • Don't bunch all your pieces in
+              the middle or you may not be able to move, and then you will
+              lose. • Try to keep your pieces on the back row or king row for
+              as long as possible, to keep the other player from gaining a
+              king. • Plan ahead and try to look at every possible move before
+              you take your turn. • Practice: if you play a lot against a lot
+              of different players, you will get better. Regardless of your
+              level of experience. There's no doubting that checkers is here
+              to stay, from its historical beginnings to its contemporary
+              accomplishments! So go ahead and challenge your buddies on
+              checkersx.com ; you never know what surprises they have in
+              store! Play with people from across the world at checekrsx.com
+              to indulge your competitive side. Checkers Federation The
+              checkers website gives titles to checkers players. GM Checkers
+              Grand Master get a rank of 3000 and win 5 official tournaments.
+              IM International checkers Master get a rating of 2800 and win 3
+              official tournaments. NM National Master get a rating of 2600
+              and win 1 official tournaments. CM Candidate Master get a rating
+              of 2400 and finish in the top 3 for 3 tournaments. Official
+              tournaments will be market in the tournament page. Join our
+              discord for more details.
+            </p>
+            <p><br /></p>
           </div>
         </div>
       </div>
     </div>
-    <!-- bootstrap script -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- custom script -->
-    <script src="../asseets/js/script.js"></script>
-    <!-- Include the Quill library -->
-    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+  </div>
+  <!-- bootstrap script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- custom script -->
+  <script src="../asseets/js/script.js"></script>
+  <!-- Include the Quill library -->
+  <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 
-    <!-- quill editor Customiation -->
-    <script>
-      // Initialize Quill editor
-      var quill = new Quill("#editor", {
-        theme: "snow",
-        modules: {
-          toolbar: [
-            [{ header: [1, 2, false] }],
-            ["bold", "italic", "underline"],
-            [{ list: "ordered" }, { list: "bullet" }],
-            ["link", "image"],
-          ],
-        },
-      });
-    </script>
-  </body>
+  <!-- quill editor Customiation -->
+  <script>
+    // Initialize Quill editor
+    var quill = new Quill("#editor", {
+      theme: "snow",
+      modules: {
+        toolbar: [
+          [{ header: [1, 2, false] }],
+          ["bold", "italic", "underline"],
+          [{ list: "ordered" }, { list: "bullet" }],
+          ["link", "image"],
+        ],
+      },
+    });
+  </script>
+</body>
+
 </html>
