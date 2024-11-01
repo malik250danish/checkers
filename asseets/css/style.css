@@ -18,9 +18,10 @@
 }
 
 .authmain {
-    border-radius: 70px;
-    padding: 0.5rem;
+    border-radius: 56px;
+    padding: 0.2rem;
     background: linear-gradient(180deg, #60a5fa 10%, rgba(33, 150, 243, 0) 30%);
+
 }
 
 .fs10 {
@@ -124,6 +125,14 @@
     transition: all .3s ease-out;
 }
 
+.btnGogl:active {
+    border-color: #dc4a3d !important;
+
+
+    background: rgb(220, 74, 61) url('../images/google-plus-white.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box !important;
+    transition: all .3s ease-out !important;
+}
+
 .forgText {
     color: #60a5fa;
     text-decoration: none;
@@ -136,4 +145,10 @@
     color: #2a7ffe !important;
     border-radius: 50px !important;
     height: 50px !important;
+}
+
+@media(max-width:768px) {
+    .posText {
+        width: fit-content;
+    }
 }
