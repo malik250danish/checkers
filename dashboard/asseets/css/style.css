@@ -614,3 +614,9 @@ body {
 .dt-layout-end {
     margin: none !important;
 }
+
+@media(max-width:768px) {
+    .layout-main {
+        padding: 0;
+    }
+}
