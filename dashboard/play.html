@@ -478,6 +478,9 @@
     let timer;
     const playButton = document.getElementById("restart-button");
     function startProgress(duration) {
+      document.querySelectorAll(".piece").forEach((ele) => {
+        ele.style.display = "block";
+      });
       let progress = 0;
       const interval = 100; // Update progress every 100ms
       const totalIntervals = (duration * 60 * 1000) / interval; // Calculate total intervals
@@ -567,6 +570,7 @@
 
     // Handle Piece Click
     function onPieceClick(event) {
+      const clickSound = new Audio("./asseets/");
       if (isAIThinking) return; // Prevent interaction during AI's turn
 
       if (gameMode === "single" && currentPlayer !== PLAYER_RED) return; // Only player can move in single mode
@@ -1315,10 +1319,17 @@
     // Initialize Game on Load
     window.onload = () => {
       // initBoard();
+
+      initBoard();
       renderBoard();
       handleGameModeSelection(); // To set initial state
+      document.querySelectorAll(".piece").forEach((ele) => {
+        ele.style.display = "none";
+      });
     };
   </script>
 </body>
+
+</html>
 
 </html>
