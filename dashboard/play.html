@@ -641,7 +641,7 @@
 
       // Handle Piece Click
       function onPieceClick(event) {
-        const clickSound = new Audio("./asseets/");
+        const clickSound = new Audio("./asseets/sound/268161105_nw_prev.m4a");
         if (isAIThinking) return; // Prevent interaction during AI's turn
 
         if (gameMode === "single" && currentPlayer !== PLAYER_RED) return; // Only player can move in single mode
@@ -651,7 +651,7 @@
         const piece = board[row][col];
 
         if (!piece || piece.player !== currentPlayer) return;
-
+        clickSound.play();
         if (mustContinueCapture) {
           // If must continue capture, only allow moves for the selected piece
           if (
