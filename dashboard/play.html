@@ -802,34 +802,6 @@
       checkGameOver();
     }
 
-    // Check Game Over
-    function checkGameOver() {
-      const playerRedPieces = countPieces(PLAYER_RED);
-      const playerBlackPieces = countPieces(PLAYER_BLACK);
-      let blackplayercount = document.getElementById(
-        "black-player-count-pieces"
-      );
-      let whiteplayercount = document.getElementById(
-        "white-player-count-pieces"
-      );
-      blackplayercount.innerText = playerBlackPieces;
-      whiteplayercount.innerText = playerRedPieces;
-      if (playerRedPieces === 0) {
-        Swal.fire({
-          title: "Good job!",
-          text: "You clicked the button!",
-          icon: "success"
-        });
-        restartGame();
-      } else if (playerBlackPieces === 0) {
-        Swal.fire({
-          title: "Good job!",
-          text: "You clicked the button!",
-          icon: "success"
-        });
-        restartGame();
-      }
-    }
 
     function checkGameOver2() {
       const playerRedPieces = countPieces(PLAYER_RED);
@@ -887,6 +859,37 @@
         }
       }
     }
+
+    // Check Game Over
+    function checkGameOver() {
+      const playerRedPieces = countPieces(PLAYER_RED);
+      const playerBlackPieces = countPieces(PLAYER_BLACK);
+      let blackplayercount = document.getElementById(
+        "black-player-count-pieces"
+      );
+      let whiteplayercount = document.getElementById(
+        "white-player-count-pieces"
+      );
+      blackplayercount.innerText = playerBlackPieces;
+      whiteplayercount.innerText = playerRedPieces;
+      if (playerRedPieces === 0) {
+        Swal.fire({
+          title: "Good job!",
+          text: "You clicked the button!",
+          icon: "success"
+        });
+        restartGame();
+      } else if (playerBlackPieces === 0) {
+        Swal.fire({
+          title: "Good job!",
+          text: "You clicked the button!",
+          icon: "success"
+        });
+        restartGame();
+      }
+    }
+
+
 
 
     // Count Pieces
