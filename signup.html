@@ -66,39 +66,39 @@
                       <p class="text-white my-2" id="passwordStrength">Weak</p>
                     </div>
                   </div>
-                  <div class="mb-2 d-flex justify-content-between">
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="flexCheckDefault"
-                      />
-                      <label
-                        class="form-check-label text-white"
-                        for="flexCheckDefault"
+                  <div class="mb-3">
+                    <label for="confirmPassword" class="formLabel mb-2"
+                      >Confirm Password</label
+                    >
+                    <input
+                      type="password"
+                      class="form-control formInput"
+                      id="confirmPassword"
+                      placeholder="Confirm Password"
+                    />
+                    <div class="strengthPassword p-3 d-none" id="strengthBar">
+                      <div
+                        class="progress progressPass"
+                        role="progressbar"
+                        aria-label="Basic example"
+                        aria-valuenow="25"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
                       >
-                        Remember me
-                      </label>
+                        <div class="progress-bar" style="width: 25%"></div>
+                      </div>
+                      <p class="text-white my-2" id="passwordStrength">Weak</p>
                     </div>
-                    <a href="#" class="forgText">Forgot password? </a>
                   </div>
                   <div class="mb-2">
                     <!-- use this for form submit -->
-                    <!-- <button type="submit" class="btn btn-primary w-100 btnSign d-flex justify-content-center align-items-center">
+                    <!-- <button type="submit" class="btn btn-primary w-100 btnSign">
                       Sign Up
                     </button> -->
                     <a
-                      href="./dashboard/dashboard.html"
-                      type="submit"
-                      class="btn btn-primary w-100 btnSign d-flex justify-content-center align-items-center"
-                    >
-                      Sign In
-                    </a>
-                    <a
                       href="./index.html"
                       type="submit"
-                      class="btn w-100 btnSignUp d-flex justify-content-center align-items-center mt-3"
+                      class="btn btn-primary w-100 btnSign d-flex justify-content-center align-items-center"
                     >
                       Sign Up
                     </a>
