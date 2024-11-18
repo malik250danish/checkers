@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Chekkers</title>
   <link rel="icon" href="./asseets/images/boardfav.png" type="image/png" />
   <!-- bootstrap link -->
@@ -79,13 +80,16 @@
     }
 
     .king::after {
-  content: "👑"; /* You can replace this with a crown icon from an icon library */
-  position: absolute;
-  top: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 24px; /* Adjust icon size */
-}
+      content: "👑";
+      /* You can replace this with a crown icon from an icon library */
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      /* Adjust icon size */
+    }
+
     .selected {
       outline: 3px solid yellow;
     }
@@ -115,12 +119,13 @@
         grid-template-columns: repeat(8, 40px);
         grid-template-rows: repeat(8, 40px);
         margin: 0 auto;
-        border: 2px solid #333;
+        border: 0px solid #333;
         /* width: 100%;
         height: 350px; */
         width: 93%;
         height: 326px;
         position: relative;
+        justify-content: center;
       }
 
       .cell {
@@ -143,10 +148,12 @@
         cursor: pointer;
         transition: transform 0.2s;
       }
+
       .king::after {
 
-  font-size: 12px; /* Adjust icon size */
-}
+        font-size: 12px;
+        /* Adjust icon size */
+      }
     }
 
     @media (max-width: 576px) {
@@ -298,7 +305,7 @@
           <div class="d-flex flex-wrap gap-3">
             <!-- play area -->
 
-            <div class="d-flex flex-column gap-3 board-container">
+            <div class="d-flex flex-column gap-1 board-container">
               <div class="next-player counter text-white border-0 d-none">
                 Trun
                 <div class="occupied whitePiece" id="next-player"></div>
@@ -318,7 +325,7 @@
               <div id="controls"></div>
 
               <div id="board"></div>
-              <div id="status">Select game mode to start</div>
+              <div id="status" class="d-none">Select game mode to start</div>
 
               <div class="">
                 <div id="easyModal" class="modal">
@@ -369,8 +376,8 @@
               </div>
             </div>
             <!-- setting area -->
-            <div class="d-flex flex-column gap-3 mobile-flex-grow-1">
-              <div class="mt-5 pt-4">
+            <div class="d-flex flex-column mobile-flex-grow-1">
+              <div class="mt-3">
                 <div class="d-flex justify-content-between bg-white mainradio">
                   <!-- Button group mimicking p-selectbutton -->
                   <div class="btn-radio first">
@@ -508,10 +515,10 @@
           checkGameOverTime()
           clearInterval(countdownInterval);
           selectedTimeDisplay.textContent = 'Time Up!'; // Optional message when countdown ends
-         
+
           selectedTimeDisplay2.textContent = 'Time Up!';
           // checkGameOver();
-         
+
         }
 
         timeInSeconds--;
@@ -762,6 +769,8 @@
       switchPlayer();
     }
 
+
+
     // Switch Player
     function switchPlayer() {
       if (gameMode === "multi") {
@@ -823,6 +832,64 @@
       checkGameOver();
     }
 
+
+    function checkGameOver2() {
+      const playerRedPieces = countPieces(PLAYER_RED);
+      const playerBlackPieces = countPieces(PLAYER_BLACK);
+      console.log("count black", playerBlackPieces)
+      console.log("count red", playerRedPieces)
+      // Get references to player piece count displays
+      let blackPlayerCount = document.getElementById("black-player-count-pieces");
+      let whitePlayerCount = document.getElementById("white-player-count-pieces");
+
+      // Update the displayed piece counts
+      blackPlayerCount.innerText = playerBlackPieces;
+      whitePlayerCount.innerText = playerRedPieces;
+
+      // Check if either player has no pieces left
+      if (playerRedPieces === 0) {
+        Swal.fire({
+          title: "Time Up!",
+          text: "The game has ended. Black Won!",
+          icon: "warning",
+          confirmButtonText: "Okay"
+        }).then(() => restartGame());
+      } else if (playerBlackPieces === 0) {
+        Swal.fire({
+          title: "Time Up!",
+          text: "The game has ended. Red Won!",
+          icon: "warning",
+          confirmButtonText: "Okay"
+        }).then(() => restartGame());
+      }
+      // If both players still have pieces, determine the winner by piece count
+      else {
+        if (playerRedPieces < playerBlackPieces) {
+          Swal.fire({
+            title: "Time Up!",
+            text: "The game has ended. Black Won!",
+            icon: "warning",
+            confirmButtonText: "Okay"
+          }).then(() => restartGame());
+        } else if (playerRedPieces > playerBlackPieces) {
+          Swal.fire({
+            title: "Time Up!",
+            text: "The game has ended. Red Won!",
+            icon: "warning",
+            confirmButtonText: "Okay"
+          }).then(() => restartGame());
+        } else {
+          // Draw condition: If both players have the same number of pieces
+          Swal.fire({
+            title: "Time Up!",
+            text: "The game has ended. It's a Draw!",
+            icon: "warning",
+            confirmButtonText: "Okay"
+          }).then(() => restartGame());
+        }
+      }
+    }
+
     // Check Game Over
     function checkGameOver() {
       const playerRedPieces = countPieces(PLAYER_RED);
@@ -868,19 +935,19 @@
           text: "White wins",
           icon: "info"
         });
-       
+
       } else if (playerRedPieces < playerBlackPieces) {
         Swal.fire({
           title: "Time Up",
           text: "Black wins",
           icon: "info"
         });
-      
+
       }
     }
 
 
-    
+
 
     // Count Pieces
     function countPieces(player) {
@@ -893,7 +960,7 @@
           }
         }
       }
-      console.log("count ", count);
+      // console.log("count ", count);
       return count;
     }
 
@@ -949,7 +1016,7 @@
       return row >= 0 && row < BOARD_SIZE && col >= 0 && col < BOARD_SIZE;
     }
 
-   
+
     function aiMove() {
       const moves = getAllPossibleMoves(PLAYER_BLACK, board);
       let bestMove = chooseBestMove(moves);
@@ -1362,9 +1429,10 @@
             );
 
             clickSound.currentTime = 0; // Reset playback to the start
-            clickSound.play().catch(err => {
-              console.error("Sound playback failed:", err);
-            });
+            clickSound.play();
+            // .catch(err => {
+            //   console.error("Sound playback failed:", err);
+            // });
 
           }
 
