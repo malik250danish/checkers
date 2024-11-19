@@ -83,7 +83,7 @@
       content: "👑";
       /* You can replace this with a crown icon from an icon library */
       position: absolute;
-      top: 5px;
+      /* top: 5px; */
       left: 50%;
       transform: translateX(-50%);
       font-size: 24px;
@@ -152,6 +152,7 @@
       .king::after {
 
         font-size: 12px;
+        top: 2px;
         /* Adjust icon size */
       }
     }
@@ -514,10 +515,11 @@
         if (timeInSeconds <= 0) {
           checkGameOverTime()
           clearInterval(countdownInterval);
-          selectedTimeDisplay.textContent = 'Time Up!'; // Optional message when countdown ends
 
-          selectedTimeDisplay2.textContent = 'Time Up!';
-          // checkGameOver();
+          selectedTimeDisplay.textContent = `${minutes} Min ${seconds < 10 ? '0' : ''}${seconds} Sec`;
+
+          selectedTimeDisplay2.textContent = `${minutes} Min ${seconds < 10 ? '0' : ''}${seconds} Sec`;
+
 
         }
 
@@ -800,7 +802,7 @@
         }
       } else {
         statusDiv.textContent =
-          currentPlayer === PLAYER_RED ? "Red's turn" : "Black's turn";
+          currentPlayer === PLAYER_RED ? "White's turn" : "Black's turn";
       }
     }
 
@@ -833,64 +835,6 @@
       checkGameOver();
     }
 
-
-    function checkGameOver2() {
-      const playerRedPieces = countPieces(PLAYER_RED);
-      const playerBlackPieces = countPieces(PLAYER_BLACK);
-      console.log("count black", playerBlackPieces)
-      console.log("count red", playerRedPieces)
-      // Get references to player piece count displays
-      let blackPlayerCount = document.getElementById("black-player-count-pieces");
-      let whitePlayerCount = document.getElementById("white-player-count-pieces");
-
-      // Update the displayed piece counts
-      blackPlayerCount.innerText = playerBlackPieces;
-      whitePlayerCount.innerText = playerRedPieces;
-
-      // Check if either player has no pieces left
-      if (playerRedPieces === 0) {
-        Swal.fire({
-          title: "Time Up!",
-          text: "The game has ended. Black Won!",
-          icon: "warning",
-          confirmButtonText: "Okay"
-        }).then(() => restartGame());
-      } else if (playerBlackPieces === 0) {
-        Swal.fire({
-          title: "Time Up!",
-          text: "The game has ended. Red Won!",
-          icon: "warning",
-          confirmButtonText: "Okay"
-        }).then(() => restartGame());
-      }
-      // If both players still have pieces, determine the winner by piece count
-      else {
-        if (playerRedPieces < playerBlackPieces) {
-          Swal.fire({
-            title: "Time Up!",
-            text: "The game has ended. Black Won!",
-            icon: "warning",
-            confirmButtonText: "Okay"
-          }).then(() => restartGame());
-        } else if (playerRedPieces > playerBlackPieces) {
-          Swal.fire({
-            title: "Time Up!",
-            text: "The game has ended. Red Won!",
-            icon: "warning",
-            confirmButtonText: "Okay"
-          }).then(() => restartGame());
-        } else {
-          // Draw condition: If both players have the same number of pieces
-          Swal.fire({
-            title: "Time Up!",
-            text: "The game has ended. It's a Draw!",
-            icon: "warning",
-            confirmButtonText: "Okay"
-          }).then(() => restartGame());
-        }
-      }
-    }
-
     // Check Game Over
     function checkGameOver() {
       const playerRedPieces = countPieces(PLAYER_RED);
@@ -907,7 +851,7 @@
         Swal.fire({
           title: "Game Over",
           text: "Black Wins ",
-          icon: "error"
+          icon: "success"
         });
         restartGame();
       } else if (playerBlackPieces === 0) {
@@ -919,6 +863,8 @@
         restartGame();
       }
     }
+
+    // Check Game Over Time
     function checkGameOverTime() {
       const playerRedPieces = countPieces(PLAYER_RED);
       const playerBlackPieces = countPieces(PLAYER_BLACK);
@@ -932,23 +878,29 @@
       whiteplayercount.innerText = playerRedPieces;
       if (playerRedPieces > playerBlackPieces) {
         Swal.fire({
-          title: "Times Up",
-          text: "White wins",
-          icon: "info"
-        });
+          title: "Time Up!",
+          text: "The game has ended. White Won!",
+          icon: "info",
+          confirmButtonText: "Okay"
+        }).then(() => restartGame());
 
       } else if (playerRedPieces < playerBlackPieces) {
         Swal.fire({
-          title: "Time Up",
-          text: "Black wins",
-          icon: "info"
-        });
-
+          title: "Time Up!",
+          text: "The game has ended. Black Won!",
+          icon: "info",
+          confirmButtonText: "Okay"
+        }).then(() => restartGame());
+      }
+      else if (playerRedPieces === playerBlackPieces) {
+        Swal.fire({
+          title: "Time Up!",
+          text: "The game has ended. Draw!",
+          icon: "info",
+          confirmButtonText: "Okay"
+        }).then(() => restartGame());
       }
     }
-
-
-
 
     // Count Pieces
     function countPieces(player) {
@@ -1397,6 +1349,8 @@
     //   }
     //   return captures;
     // }
+
+
     function getCaptureMoves(piece, row, col, boardState) {
       const clickSound = new Audio("./asseets/sound/capture.mp3");
 
